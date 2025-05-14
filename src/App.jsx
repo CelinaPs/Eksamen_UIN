@@ -1,13 +1,14 @@
-//import stilfilen for appen.
-import { Route, Router, Routes } from "react-router-dom";
-import Home from "./components/Home";
-import EventPage from "./components/EventPage";
-import CategoryPage from "./components/Dashboard";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import EventPage from "./pages/EventPage";
+import CategoryPage from "./pages/CategoryPage";
+import Dashboard from './pages/Dashboard.jsx';
 
-//Definer hovedkomponenten App
 function App() {
   return (
     <Router>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/event/:id" element={<EventPage />} />

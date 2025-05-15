@@ -1,15 +1,15 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Home from "./pages/Home";
-import EventPage from "./pages/EventPage";
-import CategoryPage from "./pages/CategoryPage";
-import Dashboard from "./pages/Dashboard.jsx";
+import Home from "./components/Home";
+import EventPage from "./components/EventPage.jsx";
+import CategoryPage from "./components/CategoryPage.jsx";
+import Dashboard from "./components/Dashboard.jsx";
+import Nav from "./components/Navbar";
 import "./styles/Layout.scss";
 
 function App() {
   return (
     <Router>
-      <Navbar />
+      <Nav />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/event/:id" element={<EventPage />} />

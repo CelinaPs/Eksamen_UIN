@@ -3,7 +3,8 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import EventPage from "./pages/EventPage";
 import CategoryPage from "./pages/CategoryPage";
-import Dashboard from './pages/Dashboard.jsx';
+import Dashboard from "./pages/Dashboard.jsx";
+import "./styles/Layout.scss";
 
 function App() {
   return (

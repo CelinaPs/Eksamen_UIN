@@ -53,6 +53,7 @@ export default function CategoryPage() {
               )}
               <h3>{event.name}</h3>
             </Link>
+            {/*Sette icon under bilde kilde: https://legacy.reactjs.org/docs/handling-events.html */}
             <button onClick={() => handleAddToWishlist(event)}>
               {wishlist.some((e) => e.id === event.id) ? (
                 <i className="fa-solid fa-heart"></i>

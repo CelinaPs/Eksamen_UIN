@@ -6,8 +6,14 @@ body,
   padding: 0;
   font-family: "Montserrat", sans-serif;
   background-color: #fff;
+  color: #010101;
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
+}
+
+h1 {
+  padding: 1rem;
+  font-size: 20px;
 }
 
 //CSS for Nav
@@ -127,8 +133,25 @@ body,
   }
 }
 
+//CSS for Dashboard
+.loggin {
+  padding: 2rem;
+
+  input {
+    background-color: #fff;
+  }
+}
+
 //CSS for mobil
 @media (max-width: 900px) {
+  h1 {
+    font-size: 23px;
+  }
+
+  .navigation {
+    flex-direction: column;
+    align-items: center;
+  }
   .event-grid {
     grid-template-columns: 1fr;
   }

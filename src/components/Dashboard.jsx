@@ -1,12 +1,12 @@
 export default function Dashboard() {
   return (
-    <div>
-      <h1>Min side / Logg inn</h1>
+    <section className="loggin">
+      <h1>Logg inn</h1>
       <form>
-        <label>Brukernavn:</label>
+        <label>Brukernavn: </label>
         <input type="text" name="username" />
         <button type="submit">Logg inn</button>
       </form>
-    </div>
+    </section>
   );
 }

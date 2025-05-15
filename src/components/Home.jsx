@@ -1,19 +1,15 @@
-import Api from "../Api";
-
 export default function Home() {
-  return (
-    <>
-      <section>
-        <h1>Sommerens Festivaler!</h1>
-        <Api />
-      </section>
-      <section>
-        <h2>Hva skjer i verdens storbyer!</h2>
-        <ul>
-          {/*Her må vi legge inn button til byene ved bruk av dynamisk kode!!*/}
-        </ul>
-        <h2>Hva skjer i {/*Sette inn dynamisk kode */}</h2>
-      </section>
-    </>
-  );
+
+  const API_KEY = "5OYpmz3EGOfKvtU8vlLA3cC6ASbAeGgE";
+
+  const FESTIVAL_IDS = [
+    "K8vZ917_YJf", //NEON
+    "K8vZ917oWOV", //Tons of Rock
+    "K8vZ917K7fV", //Findings
+    "K8vZ917bJC7", //Skeikampenfestivalen
+  ];
+
+  const fetchFestival = async (id) => {
+    const url = `https://app.ticketmaster.com/discovery/v2/attractions/${id}.json?apikey=${API_KEY}`;
+  };
 }

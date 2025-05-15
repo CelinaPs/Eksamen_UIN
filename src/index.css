@@ -43,6 +43,8 @@ button {
   font-weight: 500;
   font-family: inherit;
   transition: border-color 0.25s;
+  color: #000;
+  background-color: #ffffff;
 }
 
 @media (prefers-color-scheme: light) {

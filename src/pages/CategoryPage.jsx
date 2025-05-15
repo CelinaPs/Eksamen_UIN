@@ -16,7 +16,7 @@ export default function CategoryPage() {
     const keyword = categoryKeywords[slug] || slug; //Bruker Slug for å matche keyword of slug
 
     const response = await fetch(
-      `https://app.ticketmaster.com/discovery/v2/events.json?keyword=${keyword}&countryCode=NO&size=20&apikey=${API_KEY}`
+      `https://app.ticketmaster.com/discovery/v2/events.json?keyword=${keyword}&countryCode=NO&size=50&apikey=${API_KEY}`
     );
 
     const data = await response.json(); //Henter on konverterer JSON data fra TIcketmaster API

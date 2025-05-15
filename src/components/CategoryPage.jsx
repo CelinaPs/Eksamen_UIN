@@ -47,12 +47,10 @@ export default function CategoryPage() {
       <ul className="event-grid">
         {events.map((event) => (
           <li key={event.id} className="event-card">
-            <Link to={`/event/${event.id}`}>
-              {event.images?.[0]?.url && (
-                <img src={event.images[0].url} alt={event.name} width="200" />
-              )}
-              <h3>{event.name}</h3>
-            </Link>
+            {event.images?.[0]?.url && (
+              <img src={event.images[0].url} alt={event.name} width="200" />
+            )}
+            <h3>{event.name}</h3>
             {/*Sette icon under bilde kilde: https://legacy.reactjs.org/docs/handling-events.html */}
             <button onClick={() => handleAddToWishlist(event)}>
               {wishlist.some((e) => e.id === event.id) ? (

@@ -1,13 +1,13 @@
 import { useState } from "react";
 
 export default function Dashboard() {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, isLoggedIn] = useState(false);
 
   const buttonClick = (e) => {
     e.preventDefault();
     const username = e.target.elements.username.value.trim();
     if (username !== "") {
-      setLoggedIn(true);
+      isLoggedIn(true);
     }
   };
 

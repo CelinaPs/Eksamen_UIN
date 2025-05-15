@@ -4,7 +4,6 @@ import { useParams, Link } from "react-router-dom";
 export default function CategoryPage() {
   const { slug } = useParams();
   const [events, setEvents] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [wishlist, setWishlist] = useState([]);
 
   const categoryKeywords = {
@@ -23,9 +22,9 @@ export default function CategoryPage() {
 
     const data = await response.json();
     setEvents(data._embedded?.events || []);
-    setLoading(false);
   };
 
+  //Legger til eventet i ønskelisten hvis den ikke allerede er der
   const handleAddToWishlist = (event) => {
     setWishlist((prevWishlist) => {
       if (!prevWishlist.some((e) => e.id === event.id)) {
@@ -35,11 +34,10 @@ export default function CategoryPage() {
     });
   };
 
+  //Kjører når komponenten renderes
   useEffect(() => {
     fetchEventsByCategory();
   }, [slug]);
-
-  if (loading) return <p>Laster inn kategori...</p>;
 
   return (
     <section className="category-section">
@@ -50,13 +48,13 @@ export default function CategoryPage() {
             {event.images?.[0]?.url && (
               <img src={event.images[0].url} alt={event.name} width="200" />
             )}
-            <h3>{event.name}</h3>
+            <h3>{event.name}</h3> {/*Viser navn på event*/}
             {/*Sette icon under bilde kilde: https://legacy.reactjs.org/docs/handling-events.html */}
             <button onClick={() => handleAddToWishlist(event)}>
               {wishlist.some((e) => e.id === event.id) ? (
                 <i className="fa-solid fa-heart"></i>
               ) : (
-                <i className="fa-regular fa-heart"></i>
+                <i className="fa-regular fa-heart"></i> //Endrer icon når du trykker
               )}
             </button>
           </li>

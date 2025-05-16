@@ -4,7 +4,7 @@ import { useParams, Link } from "react-router-dom";
 export default function CategoryPage() {
   const { slug } = useParams();
   const [events, setEvents] = useState([]);
-  const [wishlist, setWishlist] = useState([]);
+  const [wishlist, setWishlist] = useState([]); // Ønskelisten for eventer
 
   const categoryKeywords = {
     musikk: "music",
@@ -24,17 +24,19 @@ export default function CategoryPage() {
     setEvents(data._embedded?.events || []);
   };
 
-  //Legger til eventet i ønskelisten hvis den ikke allerede er der
-  const handleAddToWishlist = (event) => {
+  // Legger til eller fjerner eventet fra ønskelisten 
+  const handleToggleWishlist = (event) => {
     setWishlist((prevWishlist) => {
-      if (!prevWishlist.some((e) => e.id === event.id)) {
-        return [...prevWishlist, event];
+      // Hvis eventet allerede er i ønskelisten, fjern det
+      if (prevWishlist.some((e) => e.id === event.id)) {
+        return prevWishlist.filter((e) => e.id !== event.id);
       }
-      return prevWishlist;
+      // Hvis eventet ikke er i ønskelisten, legg det til
+      return [...prevWishlist, event];
     });
   };
 
-  //Kjører når komponenten renderes
+  // Kjører når komponenten renderes
   useEffect(() => {
     fetchEventsByCategory();
   }, [slug]);
@@ -48,13 +50,13 @@ export default function CategoryPage() {
             {event.images?.[0]?.url && (
               <img src={event.images[0].url} alt={event.name} width="200" />
             )}
-            <h3>{event.name}</h3> {/*Viser navn på event*/}
-            {/*Sette icon under bilde kilde: https://legacy.reactjs.org/docs/handling-events.html */}
-            <button onClick={() => handleAddToWishlist(event)}>
+            <h3>{event.name}</h3> {/* Viser navn på event */}
+              {/*Sette icon under bilde kilde: https://legacy.reactjs.org/docs/handling-events.html */}
+            <button onClick={() => handleToggleWishlist(event)}>
               {wishlist.some((e) => e.id === event.id) ? (
-                <i className="fa-solid fa-heart"></i>
+                <i className="fa-solid fa-heart"></i> 
               ) : (
-                <i className="fa-regular fa-heart"></i> //Endrer icon når du trykker
+                <i className="fa-regular fa-heart"></i>  //endrer ikon når den trykkes på
               )}
             </button>
           </li>

@@ -72,6 +72,12 @@ h1 {
   cursor: pointer;
 }
 
+.home-container button {
+  background-color: #010101;
+  color: #fff;
+  padding: 0.8rem;
+}
+
 //Css for CategoryPage
 .category-section {
   padding: 2rem;
@@ -136,6 +142,7 @@ h1 {
 
   button {
     background-color: #010101;
+    color: #fff;
   }
 }
 

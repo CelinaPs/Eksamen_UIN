@@ -25,7 +25,9 @@ export default function Home() {
 
   useEffect(() => {
     const fetchAllFestivals = async () => {
-      const results = await Promise.all(FESTIVAL_IDS.map(id => fetchFestival(id)));
+      const results = await Promise.all(
+        FESTIVAL_IDS.map((id) => fetchFestival(id))
+      );
       setFestivals(results);
     };
     fetchAllFestivals();
@@ -47,6 +49,7 @@ export default function Home() {
               className="festival-image"
             />
             <h3>{festival.name}</h3>
+            <button type="button">Les mer om {festival.name}</button>
           </div>
         ))}
       </div>

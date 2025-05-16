@@ -9,12 +9,14 @@ export default function EventPage() {
   const getEvent = async () => {
     const API_KEY = "5OYpmz3EGOfKvtU8vlLA3cC6ASbAeGgE";
 
+    //Gjøre en fetch til Api med gitt Id
     fetch(
       `https://app.ticketmaster.com/discovery/v2/attractions/${id}.json?apikey=${API_KEY}`
     )
       .then((res) => res.json())
       .then((data) => setEvent(data))
       .catch((error) =>
+        //lage en feilmelding tilfelle det skjer noe feil under fetch
         console.error("Det skjedde noe rart ved henting av event")
       );
   };
@@ -26,6 +28,7 @@ export default function EventPage() {
 
   const image = event?.images?.[0]?.url;
 
+  // vise event informasjonen via return
   return (
     <section className="eventdetaljer">
       {event ? (
